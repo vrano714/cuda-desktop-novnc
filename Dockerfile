@@ -38,7 +38,7 @@ RUN chmod +x /bin/tini
 
 RUN mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
 
-HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
+# HEALTHCHECK --interval=30s --timeout=5s CMD curl --fail http://127.0.0.1:6079/api/health
 ENTRYPOINT ["/bin/tini", "--"]
 
 COPY desktop.conf /etc/supervisor/conf.d/
