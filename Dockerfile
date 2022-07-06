@@ -8,13 +8,13 @@ RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt upgrade -yq && \
     DEBIAN_FRONTEND=noninteractive apt install -yq apt-utils
 # I DONT KNOW WHICH ONE IS ESSENTIAL
-RUN DEBIAN_FRONTEND=noninteractive apt install -yq --allow-unauthenticated \
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -yq --allow-unauthenticated \
     wget curl git build-essential vim sudo zenity xz-utils supervisor \
     lxde dbus-x11 x11-utils alsa-utils mesa-utils libgl1-mesa-dri && \
     DEBIAN_FRONTEND=noninteractive apt install -yq --allow-unauthenticated \
-    xvfb x11vnc ttf-ubuntu-font-family ttf-wqy-zenhei \
-    gtk2-engines-murrine gnome-themes-standard gtk2-engines-pixbuf \
-    arc-theme freeglut3-dev libglu1-mesa-dev
+    xvfb x11vnc ttf-ubuntu-font-family fonts-noto-cjk \
+    #gtk2-engines-murrine gnome-themes-standard gtk2-engines-pixbuf arc-theme \
+    freeglut3-dev libglu1-mesa-dev
 
 # noVNC
 RUN mkdir -p /opt/noVNC/utils/websockify && \
